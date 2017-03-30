@@ -89,7 +89,7 @@ namespace {
 
     template <class C>
     void CheckSumCombine(unsigned int& sum, const C& c) {
-        for (const C::value_type& t : c)
+        for (const typename C::value_type& t : c)
             CheckSumCombine(sum, t);
 
         sum += c.size();
@@ -110,6 +110,12 @@ namespace {
 
     template <>
     void CheckSumCombine(unsigned int& sum, const unsigned int& t) {
+        sum += t;
+        sum %= CHECKSUM_MODULUS;
+    }
+
+    template <>
+    void CheckSumCombine(unsigned int& sum, const long unsigned int& t) {
         sum += t;
         sum %= CHECKSUM_MODULUS;
     }
