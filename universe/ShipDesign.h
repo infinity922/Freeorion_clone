@@ -201,7 +201,7 @@ public:
       * and executions of the program and the function. Useful to verify that
       * the parsed content is consistent without sending it all between
       * clients and server. */
-    unsigned int        GetCheckSum() const;
+    unsigned int GetCheckSum() const;
     //@}
 
 private:
@@ -425,7 +425,7 @@ public:
       * and executions of the program and the function. Useful to verify that
       * the parsed content is consistent without sending it all between
       * clients and server. */
-    unsigned int        GetCheckSum() const;
+    unsigned int GetCheckSum() const;
     //@}
 
 private:
