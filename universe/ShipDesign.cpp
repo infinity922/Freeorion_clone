@@ -90,7 +90,7 @@ namespace {
 
 namespace CheckSums {
     void CheckSumCombine(unsigned int& sum, const HullType::Slot& slot) {
-        std::cout << "CheckSumCombine(Slot): " << typeid(slot).name() << std::endl << std::endl;
+        //std::cout << "CheckSumCombine(Slot): " << typeid(slot).name() << std::endl << std::endl;
         CheckSumCombine(sum, slot.x);
         CheckSumCombine(sum, slot.y);
         CheckSumCombine(sum, slot.type);
@@ -142,6 +142,8 @@ PartTypeManager::PartTypeManager() {
             DebugLogger() << " ... " << p->Name() << " class: " << p->Class();
         }
     }
+
+    DebugLogger() << "PartTypeManager checksum: " << GetCheckSum();
 }
 
 PartTypeManager::~PartTypeManager() {
@@ -1093,7 +1095,7 @@ std::string ShipDesign::Dump() const {
     ++g_indent;
     retval += DumpIndent() + "name = \"" + m_name + "\"\n";
     retval += DumpIndent() + "description = \"" + m_description + "\"\n";
-    std::cout << "ShipDesign::Dump: m_name_desc_in_stringtable: " << m_name_desc_in_stringtable << std::endl;
+    //std::cout << "ShipDesign::Dump: m_name_desc_in_stringtable: " << m_name_desc_in_stringtable << std::endl;
     if (!m_name_desc_in_stringtable)
         retval += DumpIndent() + "NoStringtableLookup\n";
     retval += DumpIndent() + "hull = \"" + m_hull + "\"\n";
